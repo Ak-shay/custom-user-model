@@ -29,8 +29,9 @@ def user_login(request):
         else:
             print("someone tried to login and failed")
             print(f'username: {username} password:{password}')
-    else:
-        return render(request, 'users/login.html', {})
+            return HttpResponse("You have enteres wrong username or password")
+
+    return render(request, 'users/login.html', {})
 
 @login_required
 def user_logout(request):
